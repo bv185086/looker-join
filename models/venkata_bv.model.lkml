@@ -9,7 +9,18 @@ datagroup: venkata_bv_default_datagroup {
 }
 
 persist_with: venkata_bv_default_datagroup
+access_grant: can_view {
+  user_attribute: visible
+  allowed_values: ["YES"]
+}
 
-explore: mark_list {}
+explore: mark_list {
+  join : attendance1{
+    type: inner
+    relationship: one_to_one
+    sql_on: ${mark_list.id}=${attendance1.id} ;;
+    required_access_grants: [can_view]
+  }
+}
 
 explore: attendance1 {}

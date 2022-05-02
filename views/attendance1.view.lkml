@@ -1,4 +1,5 @@
 view: attendance1 {
+  required_access_grants: [can_view]
   sql_table_name: `Likhitha_demo.attendance1`
     ;;
   drill_fields: [id]
